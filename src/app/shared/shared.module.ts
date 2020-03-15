@@ -10,6 +10,7 @@ import { CardComponent } from './components/card/card.component';
 import { SearchComponent } from './components/search/search.component';
 import { ToolGroupComponent } from './components/tool-group/tool-group.component';
 import { ToolRibbonComponent } from './components/tool-ribbon/tool-ribbon.component';
+import { ToolComponent } from './components/tool/tool.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ToolRibbonComponent } from './components/tool-ribbon/tool-ribbon.compon
     BreadCrumbComponent,
     CardComponent,
     SearchComponent,
+    ToolComponent
   ],
   imports: [
     MaterialModule,
@@ -40,6 +42,7 @@ import { ToolRibbonComponent } from './components/tool-ribbon/tool-ribbon.compon
     BreadCrumbComponent,
     CardComponent,
     SearchComponent,
+    ToolComponent
   ]
 })
 export class SharedModule {

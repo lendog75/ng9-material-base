@@ -1,27 +1,44 @@
 <mat-card>
   <mat-card-header style="line-height: 40px;">
     <mat-card-title>
-      Card Title
+      {{metadata?.title}}
     </mat-card-title>
 
     <span class="fill-remaining-space"></span>
     <mat-card-actions>
+      <!--<button mat-icon-button [matMenuTriggerFor]="menu" *ngFor="let tool of metadata.menuItems">-->
+        <!--<mat-icon color="primary" [svgIcon]="tool.icon"></mat-icon>-->
+      <!--</button>-->
+
+      <!--<span *ngFor="let tool of metadata.menuItems">-->
+
+    <!--<button mat-icon-button [color]="color" [routerLink]="[tool.routerLink]" *ngIf="tool.routerLink">-->
+             <!--<mat-icon [svgIcon]="tool.icon"></mat-icon>-->
+      <!--<small *ngIf="showLabels" style="display: block;">{{tool.label}}</small>-->
+    <!--</button>-->
+
+
+    <!--<a mat-icon-button [color]="color" [href]="[tool.externalUrl]" *ngIf="tool.externalUrl" target="_blank">-->
+      <!--<mat-icon [svgIcon]="tool.icon"></mat-icon>-->
+      <!--<small *ngIf="showLabels" style="display: block;">{{tool?.label}}</small>-->
+    <!--</a>-->
+
+    <!--<a mat-icon-button [color]="color" *ngIf="!tool.routerLink &&  !tool.externalUrl">-->
+      <!--<mat-icon [svgIcon]="tool.icon"></mat-icon>-->
+      <!--<small *ngIf="showLabels" style="display: block;">{{tool?.label}}</small>-->
+    <!--</a>-->
+  <!--</span>-->
+
+
       <button mat-icon-button [matMenuTriggerFor]="menu" >
         <mat-icon color="primary">more_vert</mat-icon>
       </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>Redial</span>
-        </button>
-        <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voice mail</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          <span>Disable alerts</span>
-        </button>
+      <mat-menu #menu="matMenu" fxFlex fxLayoutAlign="column stretch" >
+        <app-tool color="primary" [tool]="item" *ngFor="let item of metadata.menuItems" [showLabels]="true"></app-tool>
+        <!--<button mat-menu-item *ngFor="let item of metadata.menuItems">-->
+          <!--<mat-icon [svgIcon]="item.icon"></mat-icon>-->
+          <!--<span>{{item.label}}</span>-->
+        <!--</button>button-->
       </mat-menu>
     </mat-card-actions>
 
@@ -29,36 +46,11 @@
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content style="padding-top: 1rem;">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum velit rutrum cursus auctor.
-      Suspendisse a luctus orci, vitae consectetur lacus. Mauris rutrum sapien non tortor fringilla suscipit.
-      Ut consectetur neque nec urna fringilla consectetur. Suspendisse sed interdum dui. Curabitur feugiat
-      tortor sed lobortis cursus. Fusce aliquet hendrerit ullamcorper. Vivamus sollicitudin volutpat lacus in
-      convallis. Suspendisse eget nibh tincidunt, fringilla odio et, venenatis libero. Vestibulum lorem
-      mauris, porta ac porttitor sit amet, imperdiet nec dolor. Donec lorem felis, pulvinar ac metus sed,
-      dapibus scelerisque risus. Sed nec nibh a leo dapibus rutrum. Donec nisi eros, volutpat ac fringilla
-      vitae, ullamcorper sit amet orci.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum velit rutrum cursus auctor.
-      Suspendisse a luctus orci, vitae consectetur lacus. Mauris rutrum sapien non tortor fringilla suscipit.
-      Ut consectetur neque nec urna fringilla consectetur. Suspendisse sed interdum dui. Curabitur feugiat
-      tortor sed lobortis cursus. Fusce aliquet hendrerit ullamcorper. Vivamus sollicitudin volutpat lacus in
-      convallis. Suspendisse eget nibh tincidunt, fringilla odio et, venenatis libero. Vestibulum lorem
-      mauris, porta ac porttitor sit amet, imperdiet nec dolor. Donec lorem felis, pulvinar ac metus sed,
-      dapibus scelerisque risus. Sed nec nibh a leo dapibus rutrum. Donec nisi eros, volutpat ac fringilla
-      vitae, ullamcorper sit amet orci.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum velit rutrum cursus auctor.
-      Suspendisse a luctus orci, vitae consectetur lacus. Mauris rutrum sapien non tortor fringilla suscipit.
-      Ut consectetur neque nec urna fringilla consectetur. Suspendisse sed interdum dui. Curabitur feugiat
-      tortor sed lobortis cursus. Fusce aliquet hendrerit ullamcorper. Vivamus sollicitudin volutpat lacus in
-      convallis. Suspendisse eget nibh tincidunt, fringilla odio et, venenatis libero. Vestibulum lorem
-      mauris, porta ac porttitor sit amet, imperdiet nec dolor. Donec lorem felis, pulvinar ac metus sed,
-      dapibus scelerisque risus. Sed nec nibh a leo dapibus rutrum. Donec nisi eros, volutpat ac fringilla
-      vitae, ullamcorper sit amet orci.</p>
+    <ng-content></ng-content>
   </mat-card-content>
   <mat-divider></mat-divider>
   <mat-card-actions>
 
-    <app-tool-group [tools]="tools" color="accent"></app-tool-group>
+    <app-tool-group [tools]="metadata.tools" color="accent"></app-tool-group>
   </mat-card-actions>
 </mat-card>

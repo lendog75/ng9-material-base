@@ -7,13 +7,19 @@
     </mat-drawer>
 
     <mat-drawer-content>
-      <mat-toolbar style="background-color: white; line-height: 40px; margin-left: 1rem">
+      <mat-toolbar style="background-color: white; line-height: 40px; padding-left: 1rem">
         <app-search></app-search>
         <span class="fill-remaining-space"></span>
         <app-tool-group [tools]="tools" color="primary"></app-tool-group>
       </mat-toolbar>
 
-      <div style="padding:2rem;">
+       <!--add in button to control side nav-->
+      <button mat-icon-button (click)="sidenav.toggle();" style="margin-bottom: -1rem">
+        <mat-icon svgIcon="menu" color="primary"></mat-icon>
+      </button>
+
+
+      <div style="padding:1rem 2rem 2rem 2rem;">
         <div style="display: flex; justify-content: space-between">
           <app-breadcrumb></app-breadcrumb>
           <p style="color:#584475; opacity: .7">{{ today | date:'fullDate'}}</p>

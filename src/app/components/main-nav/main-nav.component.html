@@ -1,0 +1,36 @@
+<mat-toolbar color="primary" class="xxx">
+  <h2 style="text-transform: uppercase">Application Title</h2>
+</mat-toolbar>
+<br>
+<div style="position: relative; height: 150px; border: 1px solid;">
+  <a href="#" class="pull-trigger-btn">
+    <i class="fal fa-angle-down"></i>
+  </a>
+</div>
+<section class="side-nav">
+
+  <mat-expansion-panel style="background: none; border-radius: 0" expanded hideToggle>
+    <mat-expansion-panel-header class="xxx">
+      <mat-panel-title class="side-nav-text">
+        <h3 class="mat-h3">Application Intel</h3>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-nav-list role="list">
+      <mat-list-item role="listitem" class="side-nav-text" *ngFor="let item of (navs$ | async)">{{item.label}}
+      </mat-list-item>
+    </mat-nav-list>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel style="background: none; border-radius: 0" expanded hideToggle>
+    <mat-expansion-panel-header class="xxx">
+      <mat-panel-title class="side-nav-text">
+        <h3 class="mat-h3">Theme Settings</h3>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-nav-list role="list">
+      <mat-list-item role="listitem" class="side-nav-text" *ngFor="let item of (navs$ | async)">{{item.label}}
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-expansion-panel>
+</section>

@@ -1,0 +1,20 @@
+<span class="main-actions">
+  <span *ngFor="let tool of tools">
+
+    <button mat-icon-button [color]="color" [routerLink]="[tool.routerLink]" *ngIf="tool.routerLink">
+             <mat-icon [svgIcon]="tool.icon"></mat-icon>
+      <small *ngIf="showLabels" style="display: block;">{{tool.label}}</small>
+    </button>
+
+
+    <a mat-icon-button [color]="color" [href]="[tool.externalUrl]" *ngIf="tool.externalUrl" target="_blank">
+      <mat-icon [svgIcon]="tool.icon"></mat-icon>
+      <small *ngIf="showLabels" style="display: block;">{{tool?.label}}</small>
+    </a>
+
+    <a mat-icon-button [color]="color" *ngIf="!tool.routerLink &&  !tool.externalUrl">
+      <mat-icon [svgIcon]="tool.icon"></mat-icon>
+      <small *ngIf="showLabels" style="display: block;">{{tool?.label}}</small>
+    </a>
+  </span>
+</span>

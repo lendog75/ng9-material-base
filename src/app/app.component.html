@@ -1,0 +1,36 @@
+<div style="height: 100%;" class="theme-alternate">
+
+  <mat-drawer-container fxFlex="100">
+
+    <mat-drawer mode="side" #sidenav opened class="qqq">
+      <app-main-nav></app-main-nav>
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <mat-toolbar style="background-color: white; line-height: 40px; margin-left: 1rem">
+        <app-search></app-search>
+        <span class="fill-remaining-space"></span>
+        <app-tool-group [tools]="tools" color="primary"></app-tool-group>
+      </mat-toolbar>
+
+      <div style="padding:2rem;">
+        <div style="display: flex; justify-content: space-between">
+          <app-breadcrumb></app-breadcrumb>
+          <p style="color:#584475; opacity: .7">{{ today | date:'fullDate'}}</p>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-bottom:1rem;">
+          <h2>{{title}}</h2>
+          <div>
+            <button mat-raised-button color="accent" style="margin: .5rem; color: white;">Accent</button>
+            <span style="padding: .25rem;"></span>
+            <button mat-raised-button color="primary" style="margin: .5rem">Primary</button>
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+
+      <app-footer></app-footer>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
